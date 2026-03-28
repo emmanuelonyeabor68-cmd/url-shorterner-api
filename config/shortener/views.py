@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import redirect, get_object_or_404
 from rest_framework.generics import RetrieveAPIView
+from rest_framework.throttling import AnonRateThrottle
 
 from .models import URL
 from .serializers import URLSerializer
@@ -13,6 +14,7 @@ from .utils import generate_shortcode
 # Create your views here.
 
 class ShortenURLView(APIView):
+    throttle_classes = [AnonRateThrottle]
     def post(self, request):
        serializer = URLSerializer(data=request.data)
 
