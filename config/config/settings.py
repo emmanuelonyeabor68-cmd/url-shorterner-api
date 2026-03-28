@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'FALSE') == 'TRUE'
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS",'').split(" ")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS","localhost").split(" ")
 
 
 # Application definition postgresql://my_backend_db_miqf_user:jfBSIkN4fwsiRY31CjeKCZMprKNDG7b0@dpg-d73pe3ogjchc73arc780-a/my_backend_db_miqf
