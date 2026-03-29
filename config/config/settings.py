@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'FALSE') == 'TRUE'
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS","localhost").split(" ")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS","").split(",")
 
 
 # Application definition postgresql://my_backend_db_miqf_user:jfBSIkN4fwsiRY31CjeKCZMprKNDG7b0@dpg-d73pe3ogjchc73arc780-a/my_backend_db_miqf
@@ -67,15 +67,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.sqlite",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default':dj_database_url.parse(
+        os.environ["DATABASE_URL"]
+    )
 
  }
 
-database_url = os.environ.get("DATABASE_URL")
-DATABASES['default'] = dj_database_url.parse(database_url)
+#database_url = os.environ.get("DATABASE_URL")
+#DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 
