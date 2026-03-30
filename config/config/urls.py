@@ -9,5 +9,5 @@ urlpatterns = [
     path('', home),
     path('admin/', admin.site.urls),
     path('api/', include("shortener.urls")),
-    path('<str:short_code>/', include("shortener.urls_redirect_url")),
+    path('', include("shortener.urls")),
 ]
