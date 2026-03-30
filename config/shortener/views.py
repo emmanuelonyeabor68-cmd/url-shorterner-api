@@ -24,7 +24,7 @@ class ShortenURLView(APIView):
             while URL.objects.filter(short_code=short_code).exists():
                 short_code = generate_shortcode()
             url = serializer.save(short_code=short_code)
-            return Response ({"original_url": url.original_url, "short_url": f"http://127.0.0.1:8000/{url.short_code}"},status=status.HTTP_201_CREATED)
+            return Response ({"original_url": url.original_url, "short_url": f"https://url-xa.onrender.com/{url.short_code}"},status=status.HTTP_201_CREATED)
        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def redirect_url(request, short_code):
