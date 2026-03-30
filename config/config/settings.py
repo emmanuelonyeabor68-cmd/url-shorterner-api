@@ -14,12 +14,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'FALSE') == 'TRUE'
+DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS","").split(",")
+ALLOWED_HOSTS = ["url-xa.onrender.com","localhost","127.0.0.1"]
 
+CSFR_TRUSTED_ORIGIN = ["https//url-xa.onrender.com"]
 
-# Application definition postgresql://my_backend_db_miqf_user:jfBSIkN4fwsiRY31CjeKCZMprKNDG7b0@dpg-d73pe3ogjchc73arc780-a/my_backend_db_miqf
+# Application definition 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,10 +68,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 DATABASES = {
-    'default':dj_database_url.config(
-        default=config("DATABASE_URL")
+    "default": dj_database_url.config(
+        default=os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")
+                                        
     )
-
  }
 
 #database_url = os.environ.get("DATABASE_URL")
