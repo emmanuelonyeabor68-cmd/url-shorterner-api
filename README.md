@@ -62,14 +62,14 @@ Request:
 Response:
 {
   "original_url": "https://google.com",
-  "short_url": "http://127.0.0.1:8000/abc123"
+  "short_url": "https://url-xa.onrender.com/abc123"
 }
 
 ### Redirect to Original URL
 GET /{short_code}/
 
 Example:
-http://127.0.0.1:8000/abc123
+https://url-xa.onrender.com/abc123
 ➡️ Redirects to the original URL
 
 ### URL Statistics
