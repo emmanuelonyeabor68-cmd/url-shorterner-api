@@ -19,7 +19,8 @@ This project demonstrates core backend engineering concepts such as RESTful API 
 - Python  
 - Django  
 - Django REST Framework  
-- SQLite (default database)  
+- SQLite (default database)
+- postgresql(external)  
 
 ## Installation & Setup
 
@@ -85,7 +86,8 @@ Response:
 ## Testing
 
 - API endpoints tested using Postman  
-- Redirect functionality verified in browser  
+- Redirect functionality verified in browser
+- live test link - https://url-xa.onrender.com 
 
 ## Future Improvements
 
@@ -101,4 +103,4 @@ Backend Developer (Python/Django)
 
 ## Support
 
-If you found this project useful, consider giving it a ⭐ on GitHub.  
+If you found this project useful, consider giving it a ⭐.  
