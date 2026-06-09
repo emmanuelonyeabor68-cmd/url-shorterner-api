@@ -28,6 +28,7 @@ class ShortenURLView(APIView):
        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def redirect_url(request, short_code):
+    throttle_classes = [AnonRateThrottle]
     url = get_object_or_404(URL, short_code=short_code)
     url.clicks += 1
     url.save()

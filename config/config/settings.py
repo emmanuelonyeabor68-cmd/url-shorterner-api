@@ -31,9 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'shortener',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,20 +68,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-
-DATABASES = {
-    "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")
-                                        
-    )
- }
-
-#database_url = os.environ.get("DATABASE_URL")
-#DATABASES['default'] = dj_database_url.parse(database_url)
-
-
-
-
+if os.getenv('RENDER'):
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=os.environ.get('DATABASE_URL')
+                                            
+        )
+    }
+else:
+    DATABASES = {
+        "default": {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR/'db.sqlite3'
+        }
+    }
+                                            
 
 
 
@@ -127,3 +130,7 @@ REST_FRAMEWORK = {
         'anon': '10/minute',
     }
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
