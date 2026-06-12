@@ -103,4 +103,4 @@ Backend Developer (Python/Django)
 
 ## Support
 
-If you found this project useful, consider giving it a ⭐.  
+If you found this project useful, consider giving it a ⭐
